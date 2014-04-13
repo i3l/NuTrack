@@ -13,5 +13,47 @@
 	<string name="barcode_label">Barcode</string>
 	<string name="data_label">Nutrition Data</string>
 	<string name="data">...</string>
+
+   
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="userName">User Name</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="signUp">Sign Up</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    
+    <string name="reenterPassword">Re-enter Password</string>
+    <string name="Email">Email</string>
+    <string name="title_activity_home">Home</string>
+    <string name="Welcome">Welcome</string>
+    <string name="scan">Enter Product</string>
+    <string name="track">Track Nurtition</string>
+    <string name="title_activity_track">Track</string>
+    <string name="Hello">Hello</string>
+    <string name="Logout">Logout</string>
+    <string name="title_activity_scan">Scan</string>
+    <string name="enterProductName"> Product Name</string>
+    <string name="Barcode">Barcode</string>
+    <string name="or">OR</string>
+    <string name="scanButton">Scan</string>
+    <string name="sync">Sync Data</string>
+    <string name="recommendations">Suggestions</string>
+    <string name="title_activity_reco">Reco</string>
+    <string name="title_activity_sync">Sync</string>
+    <string name="action_home">Home</string>
+    <string name="action_scan">Enter Product</string>
+    <string name="action_track">Track Nutrition</string>
+    <string name="action_sync">Sync</string>
+    <string name="action_reco">Suggestions</string>
+    <string name="action_log_out">Log Out</string>
+    <string name="title_activity_check">Check</string>
+    <string name="title_activity_cgeck">Cgeck</string>
+    <string name="title_activity_home_physician">HomePhysician</string>
+    <string name="title_activity_view_patient">ViewPatient</string>
+    <string name="Suggestions">Make a suggestion</string>
+    <string name="title_activity_enter_suggestion">EnterSuggestion</string>
+    <string name="Ok">OK</string>
 	
 </resources>

@@ -23,8 +23,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
+         android:theme="@style/CustomActionBarTheme" >
+         <!-- <activity
             android:name="edu.gatech.nutrack.NutritionixActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -32,7 +32,54 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>-->
+         <activity
+            android:name="edu.gatech.nutrack.Login"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name="edu.gatech.nutrack.SignUp"
+            android:label="@string/title_activity_sign_up" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.Home"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.Track"
+            android:label="@string/title_activity_track" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.Scan"
+            android:label="@string/title_activity_scan" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.Reco"
+            android:label="@string/title_activity_reco" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.Sync"
+            android:label="@string/title_activity_sync" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.HomePhysician"
+            android:label="@string/title_activity_home_physician" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.ViewPatient"
+            android:label="@string/title_activity_view_patient" >
+        </activity>
+        <activity
+            android:name="edu.gatech.nutrack.EnterSuggestion"
+            android:label="@string/title_activity_enter_suggestion" >
+        </activity>
+        
+        
     </application>
 
 </manifest>
