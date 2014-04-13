@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/action_home_physician"
+          android:title="@string/action_home"
+          android:showAsAction="never"/>
+  
+  <item android:id="@+id/action_log_out"
+          android:title="@string/action_log_out"
+          android:showAsAction="never"/>
+
+</menu>

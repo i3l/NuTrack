@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Home"
+    android:background= "#484848"
+     >
+
+    <TextView
+        android:id="@+id/Hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enterProductLabel"
+        android:text="@string/Hello"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <View
+        android:id="@+id/viewScan"
+        android:layout_width="180dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="70dp"
+        android:background="@android:drawable/dialog_holo_dark_frame" />
+    <View
+        android:id="@+id/viewTrack1"
+        android:layout_width="180dp"
+        android:layout_height="170dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/viewScan"
+        android:layout_toRightOf="@+id/viewScan"
+        android:background="@android:drawable/dialog_holo_dark_frame" />
+    <View
+        android:id="@+id/viewReco"
+        android:layout_width="180dp"
+        android:layout_height="170dp"
+       android:layout_below="@+id/viewScan"
+       android:background="@android:drawable/dialog_holo_dark_frame" />
+
+    <View
+        android:id="@+id/viewSync1"
+        android:layout_width="180dp"
+        android:layout_height="170dp"
+       android:layout_alignTop="@+id/viewReco"
+       android:layout_toRightOf="@+id/viewReco"
+        android:background="@android:drawable/dialog_holo_dark_frame" />
+    
+    <TextView
+        android:id="@+id/enterProductLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viewScan"
+        android:layout_alignTop="@+id/viewScan"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/scan"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+    <TextView
+        android:id="@+id/track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/viewscanButton"
+        android:layout_alignLeft="@+id/viewTrack1"
+        android:layout_alignTop="@+id/viewTrack1"
+         android:layout_marginLeft="10dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/track"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <ImageButton
+        android:id="@+id/trackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/track"
+        android:layout_alignTop="@+id/viewscanButton"
+        android:layout_marginLeft="35dp"
+        android:contentDescription="@string/track"
+        android:onClick="callTrack"
+        android:src="@drawable/ic_track" />
+
+    <TextView
+        android:id="@+id/recommendationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enterProductLabel"
+        android:layout_alignTop="@+id/viewReco"
+        android:layout_marginTop="22dp"
+        android:text="@string/recommendations"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <ImageButton
+        android:id="@+id/recoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/recommendationLabel"
+        android:layout_alignLeft="@+id/viewscanButton"
+        android:layout_marginTop="14dp"
+        android:contentDescription="@string/recommendations"
+        android:src="@drawable/ic_recommend"
+        android:onClick="callReco" />
+
+    <ImageButton
+        android:id="@+id/syncButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/trackButton"
+        android:layout_alignTop="@+id/recoButton"
+        android:contentDescription="@string/sync"
+        android:src="@android:drawable/ic_popup_sync"
+        android:text="@string/sync"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:onClick="callSync" />
+
+    <TextView
+        android:id="@+id/syncLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/recommendationLabel"
+        android:layout_alignBottom="@+id/recommendationLabel"
+        android:layout_alignLeft="@+id/track"
+        android:text="@string/sync"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff"
+        android:textDirection="rtl" />
+
+    <ImageButton
+        android:id="@+id/viewscanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enterProductLabel"
+        android:layout_below="@+id/enterProductLabel"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="35dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/scan"
+        android:maxHeight="200dp"
+        android:maxWidth="200dp"
+        android:onClick="callScan"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_scan1" />
+
+</RelativeLayout>

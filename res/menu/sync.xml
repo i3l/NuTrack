@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<item android:id="@+id/action_home"
+          android:title="@string/action_home"
+          android:showAsAction="never"/>
+    
+    <item android:id="@+id/action_scan"
+          android:title="@string/action_scan"
+          android:showAsAction="never"/>
+    
+    <item android:id="@+id/action_track"
+          android:title="@string/action_track"
+          android:showAsAction="never"/>
+    
+    <item android:id="@+id/action_reco"
+          android:title="@string/action_reco"
+          android:showAsAction="never"/>
+    
+    <item android:id="@+id/action_sync"
+          android:title="@string/action_sync"
+          android:showAsAction="never"/>
+    
+    <item android:id="@+id/action_log_out"
+          android:title="@string/action_log_out"
+          android:showAsAction="never"/>
+
+
+</menu>
