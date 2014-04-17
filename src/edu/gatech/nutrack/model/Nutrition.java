@@ -23,7 +23,7 @@ public class Nutrition {
 
 	public Nutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol) {
+			int sugars, int sodium, int cholesterol, String summary, String upc) {
 		this.foodName = foodName;
 		this.calories = calories;
 		this.totalFat = totalFat;
@@ -35,8 +35,8 @@ public class Nutrition {
 		this.sugars = sugars;
 		this.sodium = sodium;
 		this.cholesterol = cholesterol;
-		this.summary = "";
-		this.upc = "";
+		this.summary = summary;
+		this.upc = upc;
 	}
 
 	public String getFoodName() {
