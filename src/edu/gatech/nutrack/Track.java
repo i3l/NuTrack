@@ -98,7 +98,8 @@ final Context c = this;
         	        	graphView.getGraphViewStyle().setGridColor(Color.WHITE);
         	        	graphView.setViewPort(2, 40);
         	        	graphView.setScrollable(true);
-        	        	
+						graphView.setScalable(true);
+						
         	        	layout.addView(graphView);
         	    }
         	    else if(i==2) {
