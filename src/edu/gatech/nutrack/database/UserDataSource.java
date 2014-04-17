@@ -3,8 +3,6 @@ package edu.gatech.nutrack.database;
 import java.util.ArrayList;
 import java.util.List;
 
-import team.cs6365.payfive.database.MenuItemDatabaseHelper;
-
 import edu.gatech.nutrack.model.User;
 
 import android.content.ContentValues;
