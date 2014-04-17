@@ -27,11 +27,13 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 	private final static String TAG = "***TASK";
 	private static String id;
 	private static String key;	
+	private Nutrition nu;
 	protected AsyncResponse delegate = null;
 
 	public NutritionixTask(String id, String key) {
 		this.id = id;
 		this.key = key;
+		this.nu = null;
 	}
 	
 	 @Override
@@ -88,7 +90,7 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 		        	StringBuilder n = new StringBuilder();
 		        	JSONObject jobj = new JSONObject(result);
 		        	
-		        	Nutrition nu = new Nutrition();
+		        	nu = new Nutrition();
 		        	
 		        	Log.d(TAG, "Item Name: " + jobj.getString("item_name"));
 		        	n.append("Item Name: ");
@@ -162,6 +164,7 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 		        	nu.setCholesterol(formatIntegerData(jobj.getString("nf_cholesterol")));
 		        	
 		        	result = n.toString();
+		        	nu.setSummary(result);
 				} catch (JSONException e1) {
 					e1.printStackTrace();
 				}
@@ -185,7 +188,8 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 	@Override
 	protected void onPostExecute(String result) {
 		Log.d(TAG, "inside onPostExecute");
-		delegate.getAsyncResponse(result);
+		//delegate.getAsyncResponse(result);
+		delegate.getAsyncResponse(nu);
     }
 	
 	private String getData(JSONObject obj, String key) {
