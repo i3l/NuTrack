@@ -1,5 +1,6 @@
 package edu.gatech.nutrack;
 
+import edu.gatech.nutrack.database.NutritionDataSource;
 import edu.gatech.nutrack.model.Nutrition;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
@@ -155,5 +156,11 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 	public void getAsyncResponse(Nutrition n) {
 		Log.d(TAG, "inside getAsyncResponse");
 		tvData.setText(n.getSummary());
+		
+		// add nutrition object from async task to db for caching
+		NutritionDataSource nds = new NutritionDataSource(ctx);
+		nds.open();
+		nds.addNutrition(n);
+		nds.close();
 	}
 }
