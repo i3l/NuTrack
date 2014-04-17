@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
@@ -31,6 +32,7 @@ public class Login extends FragmentActivity implements
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private static final String TAG = "***LOGIN";	
+	private static final int DURATION = Toast.LENGTH_LONG;
 	private TextView un, pwd;
 	
 	@Override
@@ -143,9 +145,11 @@ public class Login extends FragmentActivity implements
 		if(success) {
 			Intent callLoginIntent = new Intent(this, Home.class);
 			Log.d(TAG, "login success");
+			Toast.makeText(this, "Login success.", DURATION);
 			startActivity(callLoginIntent);
 		} else {
 			Log.d(TAG, "login failed");
+			Toast.makeText(this, "Login failed.", DURATION);
 		}
 	}
 	
