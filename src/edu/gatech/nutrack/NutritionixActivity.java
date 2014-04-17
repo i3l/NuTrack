@@ -164,10 +164,11 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 		nds.close();
 	}
 	
-	public Nutrition getDataFromCache() {
+	public Nutrition getDataFromCache(String u) {
 		NutritionDataSource nds = new NutritionDataSource(ctx);
 		nds.open();
-		nds.addNutrition(n);
+		Nutrition n = nds.getNutritionByUpc(u);
 		nds.close();
+		return n;
 	}
 }
