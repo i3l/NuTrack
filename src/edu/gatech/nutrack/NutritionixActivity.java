@@ -67,10 +67,17 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
             public void onClick(View v) {
             	Log.d(TAG, "clicked send button");
        
-        		nt = new NutritionixTask(APP_ID, APP_KEY);
-        		nt.delegate = (AsyncResponse) ctx;
-        		nt.execute(upc);
-       
+            	Nutrition nu = getDataFromCache(upc);
+            	if(nu != null) {
+            		Log.d(TAG, "this upc is in local db");
+            		result = nu.getSummary();
+            	} else {
+            		Log.d(TAG, "this upc is not in local db");
+            		nt = new NutritionixTask(APP_ID, APP_KEY);
+            		nt.delegate = (AsyncResponse) ctx;
+            		nt.execute(upc);
+            	}
+            
         		final Dialog dialog = new Dialog(ctx);
     			dialog.setContentView(R.layout.dialog_data);
     			dialog.setTitle("Nutrition Data");
