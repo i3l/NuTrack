@@ -31,6 +31,7 @@ public class Login extends FragmentActivity implements
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private static final String TAG = "***LOGIN";	
+	private TextView un, pwd;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,12 @@ public class Login extends FragmentActivity implements
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3), }), this);
+		
+		un = (TextView) findViewById(R.id.userNameText);
+		pwd = (TextView) findViewById(R.id.passwordText);
+		
+		un.setText("");
+		pwd.setText("");
 	}
 
 	/**
@@ -132,8 +139,6 @@ public class Login extends FragmentActivity implements
 	
 	public void callLogin(View view) {
 		Authenticator a = new Authenticator(this);
-		TextView un = (TextView) findViewById(R.id.userNameText);
-		TextView pwd = (TextView) findViewById(R.id.passwordText);
 		boolean success = a.isUserValid(un.getText().toString(), pwd.getText().toString());
 		if(success) {
 			Intent callLoginIntent = new Intent(this, Home.class);
@@ -145,6 +150,7 @@ public class Login extends FragmentActivity implements
 	}
 	
 	public void callSignUp(View view) {
+		Log.d(TAG, "going to signup activity");
 		Intent callSignUpIntent = new Intent(this, SignUp.class);
 		startActivity(callSignUpIntent);
 	}
