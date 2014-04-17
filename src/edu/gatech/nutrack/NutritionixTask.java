@@ -81,34 +81,64 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 		        	StringBuilder n = new StringBuilder();
 		        	JSONObject jobj = new JSONObject(result);
 		        	
-		        	Log.d(TAG, "item name: " + jobj.getString("item_name"));
-		        	n.append("item name: ");
-		        	n.append(jobj.getString("item_name"));
+		        	Log.d(TAG, "Item Name: " + jobj.getString("item_name"));
+		        	n.append("Item Name: ");
+		        	n.append(formatData(jobj.getString("item_name")));
 		        	n.append("\n");
 		        	
-		        	Log.d(TAG, "brand_name: " + jobj.getString("brand_name"));
-		        	n.append("brand name: ");
-		        	n.append(jobj.getString("brand_name"));
+		        	Log.d(TAG, "Brand_name: " + jobj.getString("brand_name"));
+		        	n.append("Brand name: ");
+		        	n.append(formatData(jobj.getString("brand_name")));
 		        	n.append("\n");
 
-		        	Log.d(TAG, "calories: " + jobj.getString("nf_calories"));
-		        	n.append("calories: ");
-		        	n.append(jobj.getString("nf_calories"));
+		        	Log.d(TAG, "Calories: " + jobj.getString("nf_calories"));
+		        	n.append("Calories: ");
+		        	n.append(formatData(jobj.getString("nf_calories")));
 		        	n.append("\n");
 		        	
-		        	Log.d(TAG, "calories from fat: " + jobj.getString("nf_calories_from_fat"));
-		        	n.append("calories from fat: ");
-		        	n.append(jobj.getString("nf_calories_from_fat"));
+		        	Log.d(TAG, "Total fat: " + jobj.getString("nf_total_fat"));
+		        	n.append("Total fat: ");
+		        	n.append(formatData(jobj.getString("nf_total_fat")));
 		        	n.append("\n");
 		        	
-		        	Log.d(TAG, "total fat: " + jobj.getString("nf_total_fat"));
-		        	n.append("total fat: ");
-		        	n.append(jobj.getString("nf_total_fat"));
+		        	Log.d(TAG, "Saturated fat: " + jobj.getString("nf_saturated_fat"));
+		        	n.append("Saturated fat: ");
+		        	n.append(formatData(jobj.getString("nf_saturated_fat")));
 		        	n.append("\n");
 		        	
-		        	Log.d(TAG, "saturated fat: " + jobj.getString("nf_saturated_fat"));
-		        	n.append("saturated fat: ");
-		        	n.append(jobj.getString("nf_saturated_fat"));
+		        	Log.d(TAG, "Trans fat: " + jobj.getString("nf_trans_fatty_acid"));
+		        	n.append("Trans fat: ");
+		        	n.append(formatData(jobj.getString("nf_trans_fatty_acid")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Protein: " + jobj.getString("nf_protein"));
+		        	n.append("Protein: ");
+		        	n.append(formatData(jobj.getString("nf_protein")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Total Carbohydrate: " + jobj.getString("nf_total_carbohydrate"));
+		        	n.append("Total Carbohydrate: ");
+		        	n.append(formatData(jobj.getString("nf_total_carbohydrate")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Dietary Fiber: " + jobj.getString("nf_dietary_fiber"));
+		        	n.append("Dietary Fiber: ");
+		        	n.append(formatData(jobj.getString("nf_dietary_fiber")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Sugars: " + jobj.getString("nf_sugars"));
+		        	n.append("Sugars: ");
+		        	n.append(formatData(jobj.getString("nf_sugars")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Sodium: " + jobj.getString("nf_sodium"));
+		        	n.append("Sodium: ");
+		        	n.append(formatData(jobj.getString("nf_sodium")));
+		        	n.append("\n");
+		        	
+		        	Log.d(TAG, "Cholesterol: " + jobj.getString("nf_cholesterol"));
+		        	n.append("Cholesterol: ");
+		        	n.append(formatData(jobj.getString("nf_cholesterol")));
 		        	n.append("\n");
 		        	
 		        	result = n.toString();
@@ -149,6 +179,12 @@ public class NutritionixTask extends AsyncTask<String, String, String> {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		return s;
+	}
+	
+	private String formatData(String s) {
+		if(s.equals("null"))
+			return "N/A";
 		return s;
 	}
 }
