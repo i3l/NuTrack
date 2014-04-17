@@ -16,6 +16,8 @@ public abstract class NutritionDatabaseContract implements BaseColumns
     public static final String COLUMN_NAME_SUGAR = "sugar";
     public static final String COLUMN_NAME_SODIUM = "sodium";
     public static final String COLUMN_NAME_CHOLESTEROL = "cholesterol";
+    public static final String COLUMN_NAME_SUMMARY = "summary";
+    public static final String COLUMN_NAME_UPC = "upc";
     
     private NutritionDatabaseContract()
     {
