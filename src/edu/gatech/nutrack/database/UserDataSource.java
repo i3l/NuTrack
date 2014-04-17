@@ -3,6 +3,8 @@ package edu.gatech.nutrack.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import team.cs6365.payfive.database.MenuItemDatabaseHelper;
+
 import edu.gatech.nutrack.model.User;
 
 import android.content.ContentValues;
@@ -10,6 +12,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class UserDataSource 
 {
@@ -33,6 +36,14 @@ public class UserDataSource
 	public void close() 
 	{
 		dbHelper.close();
+	}
+
+	public void drop() {
+		db.execSQL(UserDatabaseHelper.SQL_DROP_USER_TABLE);
+	}
+
+	public void create() {
+		db.execSQL(UserDatabaseHelper.SQL_CREATE_USER_TABLE);
 	}
 	
 	public void addUser(String username, String password, String email, int type) 
@@ -61,7 +72,7 @@ public class UserDataSource
 	
 	public User getUser(String username, String password, String email, int type) 
 	{
-		User u = new User();
+		User u = null;
 		
 		Cursor cur = db.query(UserDatabaseContract.TABLE_NAME, 
 				columns,
@@ -83,13 +94,14 @@ public class UserDataSource
 	
 	public List<User> getAllUsers()
 	{
-		List<User> list = new ArrayList<User>();
+		List<User> list = null;
 		
 		Cursor cur = db.query(UserDatabaseContract.TABLE_NAME, 
 				columns, null, null, null, null, null);
 		
 		if(cur != null && cur.getCount() > 0)
 		{
+			list = new ArrayList<User>();
 			cur.moveToFirst();
 			while(!cur.isAfterLast())
 			{
