@@ -3,6 +3,7 @@ package edu.gatech.nutrack;
 
 import edu.gatech.nutrack.database.UserDataSource;
 import edu.gatech.nutrack.model.Authenticator;
+import edu.gatech.nutrack.model.User;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
@@ -31,6 +33,7 @@ public class Login extends FragmentActivity implements
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private static final String TAG = "***LOGIN";	
+	private static final int DURATION = Toast.LENGTH_LONG;
 	private TextView un, pwd;
 	
 	@Override
@@ -139,13 +142,25 @@ public class Login extends FragmentActivity implements
 	
 	public void callLogin(View view) {
 		Authenticator a = new Authenticator(this);
-		boolean success = a.isUserValid(un.getText().toString(), pwd.getText().toString());
-		if(success) {
-			Intent callLoginIntent = new Intent(this, Home.class);
+		//boolean success = a.isUserValid(un.getText().toString(), pwd.getText().toString());
+		User u = a.getLoginUser(un.getText().toString(), pwd.getText().toString());
+		
+		if(u != null) {
+			Intent callLoginIntent = null;
+			if(u.getType() != 0) {
+				Log.d(TAG, "login physician");
+				callLoginIntent = new Intent(this, HomePhysician.class); 
+			} else {
+				Log.d(TAG, "login patient");
+				callLoginIntent = new Intent(this, Home.class);
+			}
+			
 			Log.d(TAG, "login success");
+			Toast.makeText(this, "Login success.", DURATION).show();
 			startActivity(callLoginIntent);
 		} else {
 			Log.d(TAG, "login failed");
+			Toast.makeText(this, "Login failed.", DURATION).show();
 		}
 	}
 	
@@ -154,5 +169,4 @@ public class Login extends FragmentActivity implements
 		Intent callSignUpIntent = new Intent(this, SignUp.class);
 		startActivity(callSignUpIntent);
 	}
-
 }

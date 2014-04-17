@@ -21,14 +21,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/reenterPassword"
         android:layout_toRightOf="@+id/userNameLabel"
         android:ems="10"
         android:hint="@string/Password"
-        android:inputType="textPassword|numberPassword" />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/userNameText"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/userNameLabel"
         android:layout_alignBottom="@+id/userNameLabel"
-        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignLeft="@+id/passwordText"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:ems="10"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/emailLabel"
         android:layout_alignBottom="@+id/emailLabel"
-        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignLeft="@+id/passwordConfText"
         android:ems="10"
         android:hint="@string/Email"
         android:inputType="textEmailAddress" >
@@ -88,14 +88,14 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/passwordConfText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignLeft="@+id/passwordText"
         android:layout_alignTop="@+id/reenterPassword"
         android:ems="10"
         android:hint="@string/Password"
-        android:inputType="textPassword|numberPassword" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/emailLabel"
