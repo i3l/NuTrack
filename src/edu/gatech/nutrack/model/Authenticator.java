@@ -15,6 +15,14 @@ public class Authenticator {
 		uds.open();
 		User good = uds.getUser(u.getUsername(), u.getPassword(), u.getEmail(), u.getType());
 		uds.close();
-		return good == null;
+		return good != null;
+	}
+	
+	public boolean isUserValid(String username, String password) {
+		UserDataSource uds = new UserDataSource(context);
+		uds.open();
+		User good = uds.getUser(username, password);
+		uds.close();
+		return good != null;
 	}
 }
