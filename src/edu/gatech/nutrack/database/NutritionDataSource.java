@@ -13,7 +13,8 @@ import edu.gatech.nutrack.model.Nutrition;
 public class NutritionDataSource {
 	private SQLiteDatabase db;
 	private NutritionDatabaseHelper dbHelper;
-	private String[] columns = {NutritionDatabaseContract.COLUMN_NAME_FOOD_NAME,
+	private String[] columns = {
+			NutritionDatabaseContract.COLUMN_NAME_FOOD_NAME,
 			NutritionDatabaseContract.COLUMN_NAME_CALORIES,
 			NutritionDatabaseContract.COLUMN_NAME_TOTAL_FAT,
 			NutritionDatabaseContract.COLUMN_NAME_SAT_FAT,
@@ -23,7 +24,9 @@ public class NutritionDataSource {
 			NutritionDatabaseContract.COLUMN_NAME_DIET_FIBER,
 			NutritionDatabaseContract.COLUMN_NAME_SUGAR,
 			NutritionDatabaseContract.COLUMN_NAME_SODIUM,
-			NutritionDatabaseContract.COLUMN_NAME_CHOLESTEROL};
+			NutritionDatabaseContract.COLUMN_NAME_CHOLESTEROL,
+			NutritionDatabaseContract.COLUMN_NAME_SUMMARY,
+			NutritionDatabaseContract.COLUMN_NAME_UPC};
 	
 	public NutritionDataSource(Context context)
 	{
@@ -50,7 +53,7 @@ public class NutritionDataSource {
 	
 	public void addNutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol) {
+			int sugars, int sodium, int cholesterol, String summary, String upc) {
 		
 		ContentValues row = new ContentValues();
 		row.put(columns[0], foodName);
@@ -64,6 +67,8 @@ public class NutritionDataSource {
 		row.put(columns[8], sugars);
 		row.put(columns[9], sodium);
 		row.put(columns[10], cholesterol);
+		row.put(columns[11], summary);
+		row.put(columns[12], upc);
 		db.insert(NutritionDatabaseContract.TABLE_NAME, null, row);
 	}
 	
@@ -78,7 +83,9 @@ public class NutritionDataSource {
 				n.getDietFiber(),
 				n.getSugars(),
 				n.getSodium(),
-				n.getCholesterol());
+				n.getCholesterol(),
+				n.getSummary(),
+				n.getUpc());
 	}
 	
 	public void deleteNutrition(Nutrition n)
@@ -94,13 +101,15 @@ public class NutritionDataSource {
 				columns[7] + "=" + n.getDietFiber() + " AND " + 
 				columns[8] + "=" + n.getSugars() + " AND " + 
 				columns[9] + "=" + n.getSodium() + " AND " + 
-				columns[10] + "=" + n.getCholesterol(),
+				columns[10] + "=" + n.getCholesterol() + " AND " + 
+				columns[11] + "='" + n.getSummary() + "' AND " +
+				columns[12] + "='" + n.getUpc() + "'",
 				null);
 	}
 	
 	public Nutrition getNutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol) {
+			int sugars, int sodium, int cholesterol, String summary, String upc) {
 		
 		Nutrition n = null;
 		
@@ -116,7 +125,9 @@ public class NutritionDataSource {
 				columns[7] + "=" + dietFiber + " AND " + 
 				columns[8] + "=" + sugars + " AND " + 
 				columns[9] + "=" + sodium + " AND " + 
-				columns[10] + "=" + cholesterol, 
+				columns[10] + "=" + cholesterol + " AND " + 
+				columns[11] + "='" + summary + "' AND " +
+				columns[12] + "='" + upc + "'", 
 				null, null, null, null);
 		
 		if(cur != null && cur.getCount() > 0)
@@ -163,6 +174,8 @@ public class NutritionDataSource {
 				cur.getInt(7),
 				cur.getInt(8),
 				cur.getInt(9),
-				cur.getInt(10));
+				cur.getInt(10),
+				cur.getString(11),
+				cur.getString(12));
 	}
 }
