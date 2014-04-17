@@ -140,6 +140,25 @@ public class NutritionDataSource {
 		return n;
 	}
 	
+	public Nutrition getNutritionByUpc(String upc) {
+		
+		Nutrition n = null;
+		
+		Cursor cur = db.query(NutritionDatabaseContract.TABLE_NAME, 
+				columns,
+				columns[12] + "='" + upc + "'",
+				null, null, null, null);
+		
+		if(cur != null && cur.getCount() > 0)
+		{
+			cur.moveToFirst();
+			n = cursorToNutrition(cur);	
+		}
+		
+		cur.close();
+		return n;
+	}
+	
 	public List<Nutrition> getAllNutritions()
 	{
 		List<Nutrition> list = null;
