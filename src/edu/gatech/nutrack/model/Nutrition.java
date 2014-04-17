@@ -1,7 +1,7 @@
 package edu.gatech.nutrack.model;
 
 public class Nutrition {
-	private String foodName;
+	private String foodName, summary;
 	private int calories, totalFat, satFat, transFat, 
 	protein, totalCarb, dietFiber, sugars, sodium, cholesterol;
 	
@@ -17,6 +17,7 @@ public class Nutrition {
 		this.sugars = 0;
 		this.sodium = 0;
 		this.cholesterol = 0;
+		this.summary = "";
 	}
 
 	public Nutrition(String foodName, int calories, int totalFat, int satFat,
@@ -33,6 +34,7 @@ public class Nutrition {
 		this.sugars = sugars;
 		this.sodium = sodium;
 		this.cholesterol = cholesterol;
+		this.summary = "";
 	}
 
 	public String getFoodName() {
@@ -121,5 +123,13 @@ public class Nutrition {
 
 	public void setCholesterol(int cholesterol) {
 		this.cholesterol = cholesterol;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 }
