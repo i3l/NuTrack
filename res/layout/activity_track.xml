@@ -36,5 +36,16 @@
         android:text="@string/track"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000" />
+		
+	<LinearLayout
+         android:id="@+id/graph1"
+         android:layout_width="fill_parent"
+         android:layout_height="250dip"
+         android:layout_alignLeft="@+id/viewBy"
+         android:layout_below="@+id/viewBy"
+         android:layout_marginTop="16dp"
+         android:orientation="vertical" >
+	</LinearLayout>
+
 
 </RelativeLayout>
