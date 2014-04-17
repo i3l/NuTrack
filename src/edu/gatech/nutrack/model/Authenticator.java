@@ -10,10 +10,11 @@ public class Authenticator {
 		this.context = context;
 	}
 	
-	public boolean isPasswordValid(String input) {
+	public boolean isUserValid(User u) {
 		UserDataSource uds = new UserDataSource(context);
 		uds.open();
-		
+		User good = uds.getUser(u.getUsername(), u.getPassword(), u.getEmail(), u.getType());
 		uds.close();
+		return good == null;
 	}
 }
