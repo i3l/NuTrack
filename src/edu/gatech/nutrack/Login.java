@@ -1,6 +1,8 @@
 package edu.gatech.nutrack;
 
 
+import edu.gatech.nutrack.database.UserDataSource;
+import edu.gatech.nutrack.model.Authenticator;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,7 +30,9 @@ public class Login extends FragmentActivity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-
+	private static final String TAG = "***LOGIN";	
+	private TextView un, pwd;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,6 +52,12 @@ public class Login extends FragmentActivity implements
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3), }), this);
+		
+		un = (TextView) findViewById(R.id.userNameText);
+		pwd = (TextView) findViewById(R.id.passwordText);
+		
+		un.setText("");
+		pwd.setText("");
 	}
 
 	/**
@@ -127,13 +138,20 @@ public class Login extends FragmentActivity implements
 	}
 	
 	public void callLogin(View view) {
-		Intent callLoginIntent = new Intent(this, Home.class);
-		System.out.println("here");
-		startActivity(callLoginIntent);
+		Authenticator a = new Authenticator(this);
+		boolean success = a.isUserValid(un.getText().toString(), pwd.getText().toString());
+		if(success) {
+			Intent callLoginIntent = new Intent(this, Home.class);
+			Log.d(TAG, "login success");
+			startActivity(callLoginIntent);
+		} else {
+			Log.d(TAG, "login failed");
+		}
 	}
+	
 	public void callSignUp(View view) {
+		Log.d(TAG, "going to signup activity");
 		Intent callSignUpIntent = new Intent(this, SignUp.class);
-		System.out.println("here");
 		startActivity(callSignUpIntent);
 	}
 
