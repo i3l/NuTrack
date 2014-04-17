@@ -24,25 +24,24 @@ public class Home extends Activity {
 		return true;
 	}
 	public void callScan(View view) {
-		Intent callScanIntent = new Intent(this, Scan.class);
-		System.out.println("here");
+		Intent callScanIntent = new Intent(this, NutritionixActivity.class);
 		startActivity(callScanIntent);
 	}
 	
 	public void callTrack(View view) {
 		Intent callTrackIntent = new Intent(this, Track.class);
-		System.out.println("here");
+		
 		startActivity(callTrackIntent);
 	}
 	public void callSync(View view) {
 		Intent callSyncIntent = new Intent(this, Sync.class);
-		System.out.println("here");
+		
 		startActivity(callSyncIntent);
 	}
 	
 	public void callReco(View view) {
 		Intent callRecoIntent = new Intent(this, Reco.class);
-		System.out.println("here");
+		
 		startActivity(callRecoIntent);
 	}
 	
@@ -62,22 +61,22 @@ public class Home extends Activity {
 				return true;
 	        case R.id.action_scan:
 	        	Intent callScanIntent = new Intent(this, Scan.class);
-	    		System.out.println("here");
+	    		
 	    		startActivity(callScanIntent);
 	            return true;
 	        case R.id.action_track:
 	        	Intent callTrackIntent = new Intent(this, Track.class);
-	    		System.out.println("here");
+	    		
 	    		startActivity(callTrackIntent);
 	            return true;
 	        case R.id.action_reco:
 	        	Intent callReco = new Intent(this, Track.class);
-	    		System.out.println("here");
+	    		
 	    		startActivity(callReco);
 	            return true;
 	        case R.id.action_sync:
 	        	Intent callSync = new Intent(this, Track.class);
-	    		System.out.println("here");
+	    		
 	    		startActivity(callSync);
 	            return true;
 	        case R.id.action_log_out:
