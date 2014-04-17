@@ -1,5 +1,6 @@
 package edu.gatech.nutrack;
 
+import edu.gatech.nutrack.model.Nutrition;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
 import android.app.Dialog;
@@ -143,9 +144,16 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 
 	}
 	
+	/*
 	public void getAsyncResponse(String s) {
 		Log.d(TAG, "inside getAsyncResponse");
 		result = s;
 		tvData.setText(result);
+	}
+	*/
+	
+	public void getAsyncResponse(Nutrition n) {
+		Log.d(TAG, "inside getAsyncResponse");
+		tvData.setText(n.getSummary());
 	}
 }
