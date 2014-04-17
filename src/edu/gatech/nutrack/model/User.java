@@ -2,13 +2,17 @@ package edu.gatech.nutrack.model;
 
 public class User {
 	private String username, password, email;
-	private int type;
+	private int type;  // 0 is physician
 	
 	public User(String username, String password, String email, int type) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.type = type;
+	}
+	
+	public User() {
+		this("", "", "", 0);
 	}
 
 	public String getUsername() {
