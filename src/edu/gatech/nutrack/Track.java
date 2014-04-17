@@ -7,6 +7,11 @@ import com.jjoe64.graphview.LineGraphView;
 
 import edu.gatech.nutrack.graph.GraphViewData;
 
+import android.graphics.Color;
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.AdapterView;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -30,22 +35,97 @@ public class Track extends Activity {
         
         Spinner s = (Spinner) findViewById(R.id.viewBy);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, array_spinner);
-        s.setAdapter(adapter);
-		
-		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
-      	      new GraphViewData(1, 2.0d)
-      	      , new GraphViewData(2, 1.5d)
-      	      , new GraphViewData(3, 2.5d)
-      	      , new GraphViewData(4, 1.0d)
-      	});
-      	 
-      	GraphView graphView = new LineGraphView(
-      	      this // context
-      	      , "GraphViewDemo" // heading
-      	);
-      	graphView.addSeries(exampleSeries); // data
-      	LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
-      	layout.addView(graphView);
+final Context c = this;
+        final LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
+        
+        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { 
+        	    if (i==0){
+        	            // Today's summary
+        	    	layout.removeAllViews();
+        	    	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
+        	        	      new GraphViewData(1, 2.0d)
+        	        	      , new GraphViewData(2, 1.5d)
+        	        	      , new GraphViewData(3, 2.5d)
+        	        	      , new GraphViewData(4, 1.0d)
+        	        	});
+        	        	 
+        	        	GraphView graphView = new LineGraphView(
+        	        	      c // context
+        	        	      , "GraphViewDemo" // heading
+        	        	);
+        	        	graphView.addSeries(exampleSeries); // data
+        	        	graphView.getGraphViewStyle().setGridColor(Color.WHITE);
+        	        	graphView.setScrollable(true);
+        	        	layout.addView(graphView);
+        	    }
+        	    else if(i==1) {
+    	            // Week's summary 
+        	    	layout.removeAllViews();
+        	    	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
+        	    			new GraphViewData(1, 1.0d)
+      	        	      , new GraphViewData(2, 0.5d)
+      	        	      , new GraphViewData(3, 1.0d)
+      	        	      , new GraphViewData(4, 2.0d),
+      	        	        new GraphViewData(5, 2.5d)
+      	        	      , new GraphViewData(6, 3.0d)
+      	        	      , new GraphViewData(7, 3.25d)
+      	        	      , new GraphViewData(8, 2.25d),
+      	        	        new GraphViewData(9, 2.5d)
+      	        	      , new GraphViewData(10, 2.75d)
+      	        	      , new GraphViewData(11, 2.15d)
+      	        	      , new GraphViewData(12, 2.10d),
+      	        	        new GraphViewData(13, 2.22d)
+      	        	      , new GraphViewData(14, 3.20d)
+      	        	      , new GraphViewData(15, 3.50d)
+      	        	      , new GraphViewData(16, 3.75d),
+      	        	        new GraphViewData(17, 4.00d)
+      	        	      , new GraphViewData(18, 2.00d)
+      	        	      , new GraphViewData(19, 2.50d)
+      	        	      , new GraphViewData(20, 1.00d),
+      	        	        new GraphViewData(21, 1.50d)
+      	        	      , new GraphViewData(22, 2.00d)
+      	        	      , new GraphViewData(23, 2.50d)
+      	        	      , new GraphViewData(24, 0.50d)
+        	        	});  
+        	        	 
+        	        	GraphView graphView = new LineGraphView(
+        	        	      c // context
+        	        	      , "GraphViewDemo" // heading
+        	        	);
+        	        	graphView.addSeries(exampleSeries); // data
+        	        	graphView.getGraphViewStyle().setGridColor(Color.WHITE);
+        	        	graphView.setViewPort(2, 40);
+        	        	graphView.setScrollable(true);
+        	        	
+        	        	layout.addView(graphView);
+        	    }
+        	    else if(i==2) {
+    	            // Month's summary
+        	    	layout.removeAllViews();
+        	    	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
+        	        	      new GraphViewData(1, 1.0d)
+        	        	      , new GraphViewData(2, 1.0d)
+        	        	      , new GraphViewData(3, 1.0d)
+        	        	      , new GraphViewData(4, 1.0d)
+        	        	});
+        	        	 
+        	        	GraphView graphView = new LineGraphView(
+        	        	      c // context
+        	        	      , "GraphViewDemo" // heading
+        	        	);
+        	        	graphView.addSeries(exampleSeries); // data
+        	        	graphView.getGraphViewStyle().setGridColor(Color.WHITE);
+        	        	graphView.setScrollable(true);
+        	        	layout.addView(graphView);
+        	    }
+        	    }
+
+        	    public void onNothingSelected(AdapterView<?> adapterView) {
+        	        return;
+        	    }         	
+		});
+        
 	}
 
 	@Override
