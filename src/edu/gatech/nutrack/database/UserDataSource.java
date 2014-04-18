@@ -90,6 +90,26 @@ public class UserDataSource
 		return u;
 	}
 	
+	public User getUser(String username, String password) 
+	{
+		User u = null;
+		
+		Cursor cur = db.query(UserDatabaseContract.TABLE_NAME, 
+				columns,
+				UserDatabaseContract.COLUMN_NAME_USERNAME + "='" + username + "' AND " + 
+				UserDatabaseContract.COLUMN_NAME_PASSWORD + "='" + password + "'",
+				null, null, null, null);
+		
+		if(cur != null && cur.getCount() > 0)
+		{
+			cur.moveToFirst();
+			u = cursorToUser(cur);	
+		}
+		
+		cur.close();
+		return u;
+	}
+	
 	public List<User> getAllUsers()
 	{
 		List<User> list = null;
