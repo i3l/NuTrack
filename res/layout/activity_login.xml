@@ -52,7 +52,7 @@
             android:layout_alignLeft="@+id/userNameText"
             android:ems="10"
             android:hint="@string/Password"
-            android:inputType="textPassword|numberPassword"
+            android:inputType="textPassword"
             android:paddingLeft="10dp" />
 
         <Button
