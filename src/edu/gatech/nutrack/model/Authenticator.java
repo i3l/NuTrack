@@ -25,4 +25,12 @@ public class Authenticator {
 		uds.close();
 		return good != null;
 	}
+	
+	public User getLoginUser(String username, String password) {
+		UserDataSource uds = new UserDataSource(context);
+		uds.open();
+		User good = uds.getUser(username, password);
+		uds.close();
+		return good;
+	}
 }
