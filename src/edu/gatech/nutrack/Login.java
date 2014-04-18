@@ -147,7 +147,7 @@ public class Login extends FragmentActivity implements
 		
 		if(u != null) {
 			Intent callLoginIntent = null;
-			if(u.getType() == 0) {
+			if(u.getType() != 0) {
 				Log.d(TAG, "login physician");
 				callLoginIntent = new Intent(this, HomePhysician.class); 
 			} else {
