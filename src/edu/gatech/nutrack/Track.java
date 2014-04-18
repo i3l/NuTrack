@@ -1,5 +1,12 @@
 package edu.gatech.nutrack;
 
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GraphViewSeries;
+import com.jjoe64.graphview.LineGraphView;
+
+import edu.gatech.nutrack.graph.GraphViewData;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +31,21 @@ public class Track extends Activity {
         Spinner s = (Spinner) findViewById(R.id.viewBy);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, array_spinner);
         s.setAdapter(adapter);
+		
+		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
+      	      new GraphViewData(1, 2.0d)
+      	      , new GraphViewData(2, 1.5d)
+      	      , new GraphViewData(3, 2.5d)
+      	      , new GraphViewData(4, 1.0d)
+      	});
+      	 
+      	GraphView graphView = new LineGraphView(
+      	      this // context
+      	      , "GraphViewDemo" // heading
+      	);
+      	graphView.addSeries(exampleSeries); // data
+      	LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
+      	layout.addView(graphView);
 	}
 
 	@Override
