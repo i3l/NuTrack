@@ -145,11 +145,11 @@ public class Login extends FragmentActivity implements
 		if(success) {
 			Intent callLoginIntent = new Intent(this, Home.class);
 			Log.d(TAG, "login success");
-			Toast.makeText(this, "Login success.", DURATION);
+			Toast.makeText(this, "Login success.", DURATION).show();
 			startActivity(callLoginIntent);
 		} else {
 			Log.d(TAG, "login failed");
-			Toast.makeText(this, "Login failed.", DURATION);
+			Toast.makeText(this, "Login failed.", DURATION).show();
 		}
 	}
 	
