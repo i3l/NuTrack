@@ -32,7 +32,6 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 	private Context ctx;
 	private String result, upc;
 	private NutritionixTask nt;
-	private IntentIntegrator intentIntegrator;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -103,13 +102,15 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
         });
 		
 		bScan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Log.d(TAG, "clicked scan button");     
-            	intentIntegrator.initiateScan(IntentIntegrator.ALL_CODE_TYPES); // or QR_CODE_TYPES if you need to scan QR
-            }
-        });
-		
-		intentIntegrator = new IntentIntegrator(this);
+            
+           @Override
+           public void onClick(View v) {
+               // TODO Auto-generated method stub  
+               Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+               intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+               startActivityForResult(intent, 0);
+           }
+       });
 	}
 
 	@Override
@@ -153,7 +154,7 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		Log.d(TAG, "return from barcode scanning activity with result");
-	    if (requestCode == IntentIntegrator.REQUEST_CODE) {
+	    if (requestCode == 0) {
 	    	Log.d(TAG, "barcode scanning request code matched: " + requestCode);
 	        if (resultCode == RESULT_OK) {
 	            upc = intent.getStringExtra("SCAN_RESULT");
