@@ -36,7 +36,8 @@ public class Track extends Activity {
         
         Spinner s = (Spinner) findViewById(R.id.viewBy);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, array_spinner);
-final Context c = this;
+	s.setAdapter(adapter);
+	final Context c = this;
         final LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
         
         s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
