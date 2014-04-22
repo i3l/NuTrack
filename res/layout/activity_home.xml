@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Home"
-    android:background= "#484848"
+    android:background= "#E4EDED"
      >
 
     <TextView
@@ -66,7 +66,7 @@
         android:layout_above="@+id/viewscanButton"
         android:layout_alignLeft="@+id/viewTrack1"
         android:layout_alignTop="@+id/viewTrack1"
-         android:layout_marginLeft="10dp"
+         android:layout_marginLeft="16dp"
         android:layout_marginTop="26dp"
         android:text="@string/track"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -112,7 +112,7 @@
         android:layout_alignLeft="@+id/trackButton"
         android:layout_alignTop="@+id/recoButton"
         android:contentDescription="@string/sync"
-        android:src="@android:drawable/ic_popup_sync"
+        android:src="@drawable/ic_sync"
         android:text="@string/sync"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:onClick="callSync" />

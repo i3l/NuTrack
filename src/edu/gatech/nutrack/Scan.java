@@ -1,5 +1,6 @@
 package edu.gatech.nutrack;
 
+import android.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +27,7 @@ public class Scan extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
-	    	case android.R.id.home:
+	    	case R.id.scan:
 				// This ID represents the Home or Up button. In the case of this
 				// activity, the Up button is shown. Use NavUtils to allow users
 				// to navigate up one level in the application structure. For
@@ -36,7 +37,11 @@ public class Scan extends Activity {
 				//
 				NavUtils.navigateUpFromSameTask(this);
 				return true;
-	        
+	    	case R.id.home:
+	    		Intent callHomeIntent = new Intent(this, Home.class);
+	    		System.out.println("here");
+	    		startActivity(callHomeIntent);
+	            return true;
 	        case R.id.action_track:
 	        	Intent callTrackIntent = new Intent(this, Track.class);
 	    		System.out.println("here");

@@ -55,5 +55,7 @@
     <string name="Suggestions">Make a suggestion</string>
     <string name="title_activity_enter_suggestion">EnterSuggestion</string>
     <string name="Ok">OK</string>
+    <string name="Patient">Patient</string>
+    <string name="Physician">Physician</string>
 	
 </resources>

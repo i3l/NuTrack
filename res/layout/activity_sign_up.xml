@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/reenterPassword"
         android:layout_toRightOf="@+id/userNameLabel"
+        android:layout_marginLeft="10dp"
         android:ems="10"
         android:hint="@string/Password"
         android:inputType="textPassword" />
@@ -38,7 +39,7 @@
         android:layout_alignBottom="@+id/userNameLabel"
         android:layout_alignLeft="@+id/passwordText"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
         android:ems="10"
         android:hint="@string/userName" />
 
@@ -70,7 +71,6 @@
         android:id="@+id/userNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/signUpLabel"
         android:layout_below="@+id/signUpLabel"
         android:layout_marginTop="33dp"
         android:text="@string/userName"
@@ -93,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/passwordText"
         android:layout_alignTop="@+id/reenterPassword"
+        android:layout_marginLeft="10dp"
         android:ems="10"
         android:hint="@string/Password"
         android:inputType="textPassword" />
@@ -111,11 +112,30 @@
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailText"
-        android:layout_marginTop="41dp"
-        android:layout_toRightOf="@+id/reenterPassword"
-        android:text="@string/signUp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp"
         android:onClick="callSignUp"
+        android:text="@string/signUp"
         android:textColor="#ffffff" />
+
+    <RadioButton
+        android:id="@+id/physicianRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/patientRadio"
+        android:layout_alignBottom="@+id/patientRadio"
+        android:layout_alignRight="@+id/userNameText"
+        android:hint="@string/Physician"
+        android:text="@string/Physician" />
+
+    <RadioButton
+        android:id="@+id/patientRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailLabel"
+        android:layout_below="@+id/emailText"
+        android:layout_marginTop="26dp"
+        android:text="@string/Patient" />
 
 </RelativeLayout>
