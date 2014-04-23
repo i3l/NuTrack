@@ -60,7 +60,7 @@ public class Home extends Activity {
 				NavUtils.navigateUpFromSameTask(this);
 				return true;
 	        case R.id.action_scan:
-	        	Intent callScanIntent = new Intent(this, Scan.class);
+	        	Intent callScanIntent = new Intent(this, NutritionixActivity.class);
 	    		
 	    		startActivity(callScanIntent);
 	            return true;
