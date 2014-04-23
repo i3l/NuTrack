@@ -155,6 +155,10 @@ public class Login extends FragmentActivity implements
 				callLoginIntent = new Intent(this, Home.class);
 			}
 			
+			SharedPreferences settings = this.getSharedPreferences("Users",Activity.MODE_WORLD_READABLE);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putString("username", u.getUsername());
+			editor.commit();
 			Log.d(TAG, "login success");
 			Toast.makeText(this, "Login success.", DURATION).show();
 			startActivity(callLoginIntent);

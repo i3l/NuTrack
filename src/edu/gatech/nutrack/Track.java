@@ -29,6 +29,13 @@ public class Track extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_track);
+
+		SharedPreferences settings = this.getSharedPreferences("Users",Activity.MODE_WORLD_READABLE);
+		String username = settings.getString("username", "User");
+		
+		TextView wordToGreetUser = (TextView) findViewById(R.id.Hello);
+		wordToGreetUser.setText("Hello "+username);
+		
 		array_spinner=new String[3];
         array_spinner[0]="View Today's Summary";
         array_spinner[1]="View Thes Week's Summary";
