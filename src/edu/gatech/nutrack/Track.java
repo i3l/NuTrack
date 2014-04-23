@@ -23,6 +23,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import android.content.SharedPreferences;
+import android.widget.TextView;
+
 public class Track extends Activity {
 	private String array_spinner[];
 	@Override

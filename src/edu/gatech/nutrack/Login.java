@@ -24,6 +24,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.SharedPreferences;
+import android.widget.TextView;
+import android.app.Activity;
+
 public class Login extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
 
