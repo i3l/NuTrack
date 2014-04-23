@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-feature
@@ -18,13 +18,15 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-         android:theme="@style/CustomActionBarTheme" >
-         <!-- <activity
+        android:theme="@style/CustomActionBarTheme" >
+
+        <!--
+        <activity
             android:name="edu.gatech.nutrack.NutritionixActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -32,75 +34,84 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
-        
-         <activity
+        </activity>
+        -->
+
+        <activity
             android:name="edu.gatech.nutrack.Login"
+            android:configChanges="orientation"
             android:label="@string/app_name"
-            android:noHistory="true" 
-    android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="edu.gatech.nutrack.NutritionixActivity"
+            android:configChanges="orientation"
             android:label="@string/app_name"
-            android:noHistory="true" 
-             android:configChanges="orientation" android:screenOrientation="portrait">
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.SignUp"
+            android:configChanges="orientation"
             android:label="@string/title_activity_sign_up"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.Home"
+            android:configChanges="orientation"
             android:label="@string/title_activity_home"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.Track"
+            android:configChanges="orientation"
             android:label="@string/title_activity_track"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.Reco"
+            android:configChanges="orientation"
             android:label="@string/title_activity_reco"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="edu.gatech.nutrack.Sync"
-            android:label="@string/title_activity_sync"
-            android:noHistory="true" 
-             android:configChanges="orientation" android:screenOrientation="portrait">
+            android:name="edu.gatech.nutrack.NutritionInfo"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_nutrition_info"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.HomePhysician"
-            android:label="@string/title_activity_home_physician" 
+            android:configChanges="orientation"
+            android:label="@string/title_activity_home_physician"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.ViewPatient"
-            android:label="@string/title_activity_view_patient" 
+            android:configChanges="orientation"
+            android:label="@string/title_activity_view_patient"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.gatech.nutrack.EnterSuggestion"
+            android:configChanges="orientation"
             android:label="@string/title_activity_enter_suggestion"
             android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" >
         </activity>
-        
-        
     </application>
 
 </manifest>
