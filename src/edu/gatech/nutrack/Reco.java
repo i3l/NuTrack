@@ -46,10 +46,10 @@ public class Reco extends Activity {
 	    		System.out.println("here");
 	    		startActivity(callTrackIntent);
 	            return true;
-	       case R.id.action_sync:
-	        	Intent callSync = new Intent(this, Track.class);
+	       case R.id.action_nutrition_info:
+	        	Intent callNutritionInfo = new Intent(this, Track.class);
 	    		System.out.println("here");
-	    		startActivity(callSync);
+	    		startActivity(callNutritionInfo);
 	            return true;
 	        case R.id.action_log_out:
 	        	callLogout(item.getActionView());

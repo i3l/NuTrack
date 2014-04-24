@@ -40,7 +40,7 @@
        android:background="@android:drawable/dialog_holo_dark_frame" />
 
     <View
-        android:id="@+id/viewSync1"
+        android:id="@+id/viewNutritionInfo"
         android:layout_width="180dp"
         android:layout_height="170dp"
        android:layout_alignTop="@+id/viewReco"
@@ -112,19 +112,19 @@
         android:layout_alignLeft="@+id/trackButton"
         android:layout_alignTop="@+id/recoButton"
         android:contentDescription="@string/sync"
-        android:src="@drawable/ic_sync"
+        android:src="@drawable/ic_info"
         android:text="@string/sync"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:onClick="callSync" />
 
     <TextView
-        android:id="@+id/syncLabel"
+        android:id="@+id/nutritionInfoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/recommendationLabel"
         android:layout_alignBottom="@+id/recommendationLabel"
         android:layout_alignLeft="@+id/track"
-        android:text="@string/sync"
+        android:text="@string/nutrition_info"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff"
         android:textDirection="rtl" />

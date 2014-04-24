@@ -74,10 +74,10 @@ public class Home extends Activity {
 	    		
 	    		startActivity(callReco);
 	            return true;
-	        case R.id.action_sync:
-	        	Intent callSync = new Intent(this, Track.class);
+	        case R.id.action_nutrition_info:
+	        	Intent callNutritionInfo = new Intent(this, Track.class);
 	    		
-	    		startActivity(callSync);
+	    		startActivity(callNutritionInfo);
 	            return true;
 	        case R.id.action_log_out:
 	        	callLogout(item.getActionView());

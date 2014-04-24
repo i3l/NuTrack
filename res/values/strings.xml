@@ -41,11 +41,11 @@
     <string name="sync">Sync Data</string>
     <string name="recommendations">Suggestions</string>
     <string name="title_activity_reco">Reco</string>
-    <string name="title_activity_sync">Sync</string>
+    <string name="title_activity_nutrition_info">Nutrition Info</string>
     <string name="action_home">Home</string>
     <string name="action_scan">Enter Product</string>
     <string name="action_track">Track Nutrition</string>
-    <string name="action_sync">Sync</string>
+    <string name="action_nutrition_info">Nutrition Info</string>
     <string name="action_reco">Suggestions</string>
     <string name="action_log_out">Log Out</string>
     <string name="title_activity_check">Check</string>
