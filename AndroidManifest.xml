@@ -70,12 +70,6 @@
              android:configChanges="orientation" android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="edu.gatech.nutrack.Scan"
-            android:label="@string/title_activity_scan" 
-            android:noHistory="true"
-             android:configChanges="orientation" android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name="edu.gatech.nutrack.Reco"
             android:label="@string/title_activity_reco"
             android:noHistory="true"

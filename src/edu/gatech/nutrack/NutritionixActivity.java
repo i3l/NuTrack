@@ -1,5 +1,7 @@
 package edu.gatech.nutrack;
 
+import edu.gatech.nutrack.scan.*;
+
 import edu.gatech.nutrack.database.NutritionDataSource;
 import edu.gatech.nutrack.model.Nutrition;
 import android.support.v4.app.Fragment;
@@ -32,6 +34,7 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 	private Context ctx;
 	private String result, upc;
 	private NutritionixTask nt;
+	private IntentIntegrator intentIntegrator;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,11 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 		}
 		*/
 		
-		etFoodName = (EditText) findViewById(R.id.etFoodName);
+		intentIntegrator = new IntentIntegrator(this); 
+		
+		//etFoodName = (EditText) findViewById(R.id.etFoodName);
 		etBarcode = (EditText) findViewById(R.id.etBarcode);
+		
 		bClear = (Button) findViewById(R.id.bClear);
 		bSend = (Button) findViewById(R.id.bSend);
 		bScan = (Button) findViewById(R.id.bScan);
@@ -58,7 +64,7 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 		bClear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Log.d(TAG, "clicked clear button");
-        		etFoodName.setText("");
+        		//etFoodName.setText("");
         		etBarcode.setText("");
             }
         });
@@ -105,10 +111,13 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
             
            @Override
            public void onClick(View v) {
-               // TODO Auto-generated method stub  
+        	   /*
                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
                startActivityForResult(intent, 0);
+               */
+        	   
+        	   intentIntegrator.initiateScan(IntentIntegrator.ALL_CODE_TYPES);
            }
        });
 	}
@@ -154,7 +163,7 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		Log.d(TAG, "return from barcode scanning activity with result");
-	    if (requestCode == 0) {
+	    if (requestCode == IntentIntegrator.REQUEST_CODE) {
 	    	Log.d(TAG, "barcode scanning request code matched: " + requestCode);
 	        if (resultCode == RESULT_OK) {
 	            upc = intent.getStringExtra("SCAN_RESULT");

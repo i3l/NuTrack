@@ -8,6 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.gatech.nutrack.NutritionixActivity$PlaceholderFragment" >
     
+    <!-- 
     <TextView
         android:id="@+id/tvFoodName"
         android:layout_width="wrap_content"
@@ -16,25 +17,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="27dp"
         android:text="@string/food_name_label" />
-
-    <TextView
-        android:id="@+id/tvBarcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etFoodName"
-        android:layout_below="@+id/bClear"
-        android:layout_marginTop="53dp"
-        android:text="@string/barcode_label" />
-
-    <EditText
-        android:id="@+id/etBarcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvBarcode"
-        android:layout_below="@+id/tvBarcode"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="@string/barcode_label" />
     
     <EditText
         android:id="@+id/etFoodName"
@@ -45,33 +27,53 @@
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/food_name_label" />
-
-    <Button
-        android:id="@+id/bClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etFoodName"
-        android:layout_below="@+id/etFoodName"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/clear_button" />
-
-    <Button
-        android:id="@+id/bSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvBarcode"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/bClear"
-        android:text="@string/send_button" />
+	-->
 
     <Button
         android:id="@+id/bScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bClear"
-        android:layout_below="@+id/etBarcode"
-        android:layout_marginTop="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvBarcode"
         android:text="@string/scan_button" />
+
+    <EditText
+        android:id="@+id/etBarcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bScan"
+        android:layout_alignBottom="@+id/bScan"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:hint="@string/barcode_label" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvBarcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etBarcode"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="38dp"
+        android:text="@string/barcode_label" />
+
+    <Button
+        android:id="@+id/bSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bClear"
+        android:layout_toLeftOf="@+id/bScan"
+        android:text="@string/send_button" />
+
+    <Button
+        android:id="@+id/bClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bScan"
+        android:layout_marginTop="38dp"
+        android:layout_toRightOf="@+id/tvBarcode"
+        android:text="@string/clear_button" />
 
 </RelativeLayout>
