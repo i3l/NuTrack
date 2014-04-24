@@ -32,6 +32,7 @@ public class NutritionInfo extends Activity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
+		context = this;
 		listView = (ListView)findViewById(R.id.listView1);
 		NutritionDataSource dbSource = new NutritionDataSource(context);
 		List<Nutrition> nutritionList = dbSource.getAllNutritions();

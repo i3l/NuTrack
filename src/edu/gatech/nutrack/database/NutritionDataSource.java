@@ -26,7 +26,9 @@ public class NutritionDataSource {
 			NutritionDatabaseContract.COLUMN_NAME_SODIUM,
 			NutritionDatabaseContract.COLUMN_NAME_CHOLESTEROL,
 			NutritionDatabaseContract.COLUMN_NAME_SUMMARY,
-			NutritionDatabaseContract.COLUMN_NAME_UPC};
+			NutritionDatabaseContract.COLUMN_NAME_UPC,
+			NutritionDatabaseContract.COLUMN_NAME_USERNAME,
+			NutritionDatabaseContract.COLUMN_NAME_TIME};
 	
 	public NutritionDataSource(Context context)
 	{
@@ -53,7 +55,7 @@ public class NutritionDataSource {
 	
 	public void addNutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol, String summary, String upc) {
+			int sugars, int sodium, int cholesterol, String summary, String upc, String user) {
 		
 		ContentValues row = new ContentValues();
 		row.put(columns[0], foodName);
@@ -69,6 +71,8 @@ public class NutritionDataSource {
 		row.put(columns[10], cholesterol);
 		row.put(columns[11], summary);
 		row.put(columns[12], upc);
+		row.put(columns[13], user);
+
 		db.insert(NutritionDatabaseContract.TABLE_NAME, null, row);
 	}
 	
@@ -85,7 +89,8 @@ public class NutritionDataSource {
 				n.getSodium(),
 				n.getCholesterol(),
 				n.getSummary(),
-				n.getUpc());
+				n.getUpc(), 
+				n.getUser());
 	}
 	
 	public void deleteNutrition(Nutrition n)
@@ -103,13 +108,16 @@ public class NutritionDataSource {
 				columns[9] + "=" + n.getSodium() + " AND " + 
 				columns[10] + "=" + n.getCholesterol() + " AND " + 
 				columns[11] + "='" + n.getSummary() + "' AND " +
-				columns[12] + "='" + n.getUpc() + "'",
+				columns[12] + "='" + n.getUpc() + "' AND " + 
+				columns[13] + "='" + n.getUser() + "' AND " + 
+				columns[14] + "='" + n.getTime() + "'",
 				null);
 	}
 	
 	public Nutrition getNutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol, String summary, String upc) {
+			int sugars, int sodium, int cholesterol, String summary, String upc,
+			String user, String time) {
 		
 		Nutrition n = null;
 		
@@ -127,7 +135,9 @@ public class NutritionDataSource {
 				columns[9] + "=" + sodium + " AND " + 
 				columns[10] + "=" + cholesterol + " AND " + 
 				columns[11] + "='" + summary + "' AND " +
-				columns[12] + "='" + upc + "'", 
+				columns[12] + "='" + upc + "' AND " +  
+				columns[13] + "='" + user + "' AND " + 
+				columns[14] + "='" + time + "'",
 				null, null, null, null);
 		
 		if(cur != null && cur.getCount() > 0)
@@ -195,6 +205,8 @@ public class NutritionDataSource {
 				cur.getInt(9),
 				cur.getInt(10),
 				cur.getString(11),
-				cur.getString(12));
+				cur.getString(12),
+				cur.getString(13),
+				cur.getString(14));
 	}
 }

@@ -23,7 +23,8 @@ public class NutritionDatabaseHelper extends SQLiteOpenHelper{
 	    		NutritionDatabaseContract.COLUMN_NAME_SODIUM + " INTEGER NOT NULL, " + 
 	    		NutritionDatabaseContract.COLUMN_NAME_CHOLESTEROL + " INTEGER NOT NULL, " +  
 	    		NutritionDatabaseContract.COLUMN_NAME_SUMMARY + " TEXT NOT NULL, " + 
-	    		NutritionDatabaseContract.COLUMN_NAME_UPC + " TEXT NOT NULL)";
+	    		NutritionDatabaseContract.COLUMN_NAME_USERNAME + " TEXT NOT NULL, " + 
+	    		NutritionDatabaseContract.COLUMN_NAME_TIME + " DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL)";
 	    
 	    public static final String SQL_DROP_NUTRITION_TABLE = 
 	    		 "DROP TABLE IF EXISTS " + NutritionDatabaseContract.TABLE_NAME;

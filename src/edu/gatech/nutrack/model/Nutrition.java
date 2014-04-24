@@ -1,7 +1,7 @@
 package edu.gatech.nutrack.model;
 
 public class Nutrition {
-	private String foodName, summary, upc;
+	private String foodName, summary, upc, user, time;
 	private int calories, totalFat, satFat, transFat, 
 	protein, totalCarb, dietFiber, sugars, sodium, cholesterol;
 	
@@ -19,11 +19,14 @@ public class Nutrition {
 		this.cholesterol = 0;
 		this.summary = "";
 		this.upc = "";
+		this.user = "";
+		this.time = "";
 	}
 
 	public Nutrition(String foodName, int calories, int totalFat, int satFat,
 			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol, String summary, String upc) {
+			int sugars, int sodium, int cholesterol, String summary, String upc,
+			String user, String time) {
 		this.foodName = foodName;
 		this.calories = calories;
 		this.totalFat = totalFat;
@@ -37,6 +40,29 @@ public class Nutrition {
 		this.cholesterol = cholesterol;
 		this.summary = summary;
 		this.upc = upc;
+		this.user = user;
+		this.time = time;
+	}
+	
+	public Nutrition(String foodName, int calories, int totalFat, int satFat,
+			int transFat, int protein, int totalCarb, int dietFiber,
+			int sugars, int sodium, int cholesterol, String summary, String upc,
+			String user) {
+		this.foodName = foodName;
+		this.calories = calories;
+		this.totalFat = totalFat;
+		this.satFat = satFat;
+		this.transFat = transFat;
+		this.protein = protein;
+		this.totalCarb = totalCarb;
+		this.dietFiber = dietFiber;
+		this.sugars = sugars;
+		this.sodium = sodium;
+		this.cholesterol = cholesterol;
+		this.summary = summary;
+		this.upc = upc;
+		this.user = user;
+		this.time = "";
 	}
 
 	public String getFoodName() {
@@ -141,5 +167,21 @@ public class Nutrition {
 
 	public void setUpc(String upc) {
 		this.upc = upc;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 }
