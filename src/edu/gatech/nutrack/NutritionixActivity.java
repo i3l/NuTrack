@@ -1,10 +1,10 @@
 package edu.gatech.nutrack;
 
 import edu.gatech.nutrack.scan.*;
-
 import edu.gatech.nutrack.database.NutritionDataSource;
 import edu.gatech.nutrack.model.Nutrition;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -121,25 +121,45 @@ public class NutritionixActivity extends Activity implements AsyncResponse{
            }
        });
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.nutritionix, menu);
+		getMenuInflater().inflate(R.menu.scan, menu);
 		return true;
 	}
-
-	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+    	case android.R.id.home:
+			// This ID represents the Home or Up button. In the case of this
+			// activity, the Up button is shown. Use NavUtils to allow users
+			// to navigate up one level in the application structure. For
+			// more details, see the Navigation pattern on Android Design:
+			//
+			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
+			//
+			NavUtils.navigateUpFromSameTask(this);
 			return true;
-		}
-		return super.onOptionsItemSelected(item);
+        case R.id.action_nutrition_info:
+        	Intent callNutritionInfo = new Intent(this, NutritionInfo.class);
+    		System.out.println("here");
+    		startActivity(callNutritionInfo);
+            return true;
+        case R.id.action_track:
+        	Intent callTrackIntent = new Intent(this, Track.class);
+    		System.out.println("here");
+    		startActivity(callTrackIntent);
+            return true;
+        case R.id.action_reco:
+        	Intent callReco = new Intent(this, Track.class);
+    		System.out.println("here");
+    		startActivity(callReco);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+	    }
+		
 	}
 
 	/**

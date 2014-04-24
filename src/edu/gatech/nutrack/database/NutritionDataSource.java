@@ -53,9 +53,9 @@ public class NutritionDataSource {
 		db.execSQL(NutritionDatabaseHelper.SQL_CREATE_NUTRITION_TABLE);
 	}
 	
-	public void addNutrition(String foodName, int calories, int totalFat, int satFat,
-			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol, String summary, String upc, String user) {
+	public void addNutrition(String foodName, double calories, double totalFat, double satFat,
+			double transFat, double protein, double totalCarb, double dietFiber,
+			double sugars, double sodium, double cholesterol, String summary, String upc, String user) {
 		
 		ContentValues row = new ContentValues();
 		row.put(columns[0], foodName);
@@ -114,9 +114,9 @@ public class NutritionDataSource {
 				null);
 	}
 	
-	public Nutrition getNutrition(String foodName, int calories, int totalFat, int satFat,
-			int transFat, int protein, int totalCarb, int dietFiber,
-			int sugars, int sodium, int cholesterol, String summary, String upc,
+	public Nutrition getNutrition(String foodName, double calories, double totalFat, double satFat,
+			double transFat, double protein, double totalCarb, double dietFiber,
+			double sugars, double sodium, double cholesterol, String summary, String upc,
 			String user, String time) {
 		
 		Nutrition n = null;
@@ -174,7 +174,7 @@ public class NutritionDataSource {
 		List<Nutrition> list = null;
 		
 		Cursor cur = db.query(NutritionDatabaseContract.TABLE_NAME, 
-				columns, null, null, null, null, null);
+				columns, null, null, null, null, NutritionDatabaseContract.COLUMN_NAME_TIME + " ASC");
 		
 		if(cur != null && cur.getCount() > 0)
 		{
@@ -194,16 +194,16 @@ public class NutritionDataSource {
 	public Nutrition cursorToNutrition(Cursor cur)  
 	{
 		return new Nutrition(cur.getString(0), 
-				cur.getInt(1),
-				cur.getInt(2),
-				cur.getInt(3),
-				cur.getInt(4),
-				cur.getInt(5),
-				cur.getInt(6),
-				cur.getInt(7),
-				cur.getInt(8),
-				cur.getInt(9),
-				cur.getInt(10),
+				cur.getDouble(1),
+				cur.getDouble(2),
+				cur.getDouble(3),
+				cur.getDouble(4),
+				cur.getDouble(5),
+				cur.getDouble(6),
+				cur.getDouble(7),
+				cur.getDouble(8),
+				cur.getDouble(9),
+				cur.getDouble(10),
 				cur.getString(11),
 				cur.getString(12),
 				cur.getString(13),

@@ -15,12 +15,8 @@
           android:title="@string/action_reco"
           android:showAsAction="never"/>
     
-    <!-- <item android:id="@+id/action_sync"
-          android:title="@string/action_sync"
-          android:showAsAction="never"/> -->
-          
-              <item android:id="@+id/action_nutrition_info"
-          android:title="@string/action_sync"
+   	<item android:id="@+id/action_nutrition_info"
+          android:title="@string/action_nutrition_info"
           android:showAsAction="never"/>
           
     
